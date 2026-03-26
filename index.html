@@ -766,6 +766,13 @@
 
 
 
+
+  /* scroll hint — mobile only */
+  .scroll-hint { display: none; }
+  @media (max-width: 480px) {
+    .scroll-hint { display: flex; }
+  }
+
   /* ============================
      FULLY RESPONSIVE — ALL DEVICES
      ============================ */
@@ -787,95 +794,162 @@
 
   /* Tablets portrait */
   @media (max-width: 768px) {
-    .hero { padding: 90px 20px 70px; }
-    .hero h1 { font-size: 2.4rem; line-height: 1.2; }
-    .hero p { font-size: 1rem; }
-
-    .courses-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .hero { padding: 80px 18px 60px; }
+    .hero h1 { font-size: 2.2rem; line-height: 1.2; }
+    .hero p { font-size: 0.95rem; margin-bottom: 28px; }
+    .courses-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .perks-grid { grid-template-columns: repeat(2, 1fr); }
-
-    .stats-strip { gap: 30px; padding: 40px 20px; }
-    .stat-counter { font-size: 2.2rem; }
-
-    .section { padding: 60px 16px; }
-    .perks-section { padding: 60px 16px; }
-    .testimonials-section { padding: 60px 16px; }
-    .cta-section { padding: 70px 16px; }
-
-    .cta-btn { padding: 16px 30px; font-size: 1rem; }
-    .trust-row { gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .stats-strip { gap: 24px; padding: 36px 16px; }
+    .section { padding: 50px 16px; }
+    .perks-section { padding: 50px 16px; }
+    .testimonials-section { padding: 50px 16px; }
+    .cta-section { padding: 60px 16px; }
+    .trust-row { gap: 12px; flex-wrap: wrap; justify-content: center; }
   }
 
-  /* Mobile phones */
+  /* ---- MOBILE PHONES ---- */
   @media (max-width: 480px) {
     html { font-size: 15px; }
 
-    .hero { padding: 80px 14px 60px; min-height: auto; }
-    .hero h1 { font-size: 1.9rem; line-height: 1.25; }
-    .hero p { font-size: 0.92rem; margin-bottom: 32px; }
-
-    .badge { font-size: 11px; padding: 7px 16px; }
-
-    .price-main { font-size: 3.5rem; }
-    .old-price { font-size: 1rem; }
+    /* HERO — compact */
+    .hero {
+      padding: 70px 16px 44px;
+      min-height: auto;
+    }
+    .hero h1 { font-size: 1.65rem; line-height: 1.25; margin-bottom: 14px; }
+    .hero p  { font-size: 0.88rem; margin-bottom: 22px; line-height: 1.65; }
+    .badge   { font-size: 10px; padding: 6px 14px; margin-bottom: 18px; }
+    .price-block { gap: 4px; margin-bottom: 26px; }
+    .price-main  { font-size: 3rem; }
+    .old-price   { font-size: 0.9rem; }
+    .price-note  { font-size: 0.8rem; }
 
     .cta-btn {
-      padding: 15px 24px;
-      font-size: 0.95rem;
+      padding: 14px 22px;
+      font-size: 0.9rem;
       width: 100%;
-      max-width: 320px;
+      max-width: 300px;
       justify-content: center;
     }
+    .trust-row { gap: 8px; margin-top: 22px; }
+    .trust-item { font-size: 0.75rem; }
 
-    .trust-row { gap: 10px; }
-    .trust-item { font-size: 0.8rem; }
+    /* MARQUEE — smaller */
+    .marquee-item { font-size: 0.75rem; padding: 0 16px; }
+    .marquee-wrap { padding: 10px 0; }
 
-    .courses-grid { grid-template-columns: 1fr; gap: 12px; }
-    .course-card { padding: 22px 18px; }
+    /* STATS — 2x2 grid */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 28px 14px;
+    }
+    .stat-item { padding: 16px 10px; background: var(--dark3); border-radius: 14px; border: 1px solid rgba(91,155,213,0.1); }
+    .stat-counter { font-size: 1.8rem; }
+    .stat-label   { font-size: 0.72rem; }
 
-    .perks-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .perk-item { padding: 20px 14px; }
-    .perk-icon { width: 46px; height: 46px; font-size: 1.3rem; }
+    /* COURSES — horizontal scroll on mobile */
+    .section { padding: 36px 0 36px 16px; }
+    .section-title { font-size: 1.3rem; margin-bottom: 22px; padding: 0 16px; }
+    .section-label { padding: 0 16px; }
+    .courses-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 12px;
+      padding-bottom: 12px;
+      padding-right: 16px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .courses-grid::-webkit-scrollbar { display: none; }
+    .course-card {
+      min-width: 220px;
+      max-width: 220px;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      padding: 18px 16px;
+    }
+    .course-icon { font-size: 2rem; }
+    .course-title { font-size: 1rem; }
+    .course-desc  { font-size: 0.8rem; }
 
-    .testimonials-grid { grid-template-columns: 1fr; gap: 14px; }
-    .testimonial-card { padding: 22px 18px; }
+    /* scroll hint arrow */
+    .courses-grid-wrap { position: relative; }
+    .scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      padding: 0 16px;
+      margin-bottom: 14px;
+    }
+    .scroll-hint::after { content: '→'; color: #5B9BD5; }
 
-    .stats-strip { gap: 20px; padding: 36px 14px; flex-wrap: wrap; }
-    .stat-counter { font-size: 2rem; }
-    .stat-label { font-size: 0.78rem; }
+    /* PERKS — 2 cols compact */
+    .perks-section { padding: 36px 14px; }
+    .perks-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .perk-item { padding: 16px 10px; gap: 10px; }
+    .perk-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+    .perk-title { font-size: 0.88rem; }
+    .perk-desc  { font-size: 0.75rem; }
 
-    .section-title { font-size: 1.5rem; margin-bottom: 36px; }
-    .section { padding: 50px 14px; }
-    .perks-section { padding: 50px 14px; }
-    .testimonials-section { padding: 50px 14px; }
-    .cta-section { padding: 60px 14px; }
-    .cta-section h2 { font-size: 1.7rem; }
-    .cta-section p { font-size: 0.92rem; }
+    /* TESTIMONIALS — horizontal scroll */
+    .testimonials-section { padding: 36px 0 36px 16px; }
+    .testimonials-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 12px;
+      padding-bottom: 12px;
+      padding-right: 16px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .testimonials-grid::-webkit-scrollbar { display: none; }
+    .testimonial-card {
+      min-width: 270px;
+      max-width: 270px;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      padding: 18px 16px;
+    }
+    .testimonial-text { font-size: 0.82rem; }
 
-    .marquee-item { font-size: 0.78rem; padding: 0 20px; }
+    /* CTA — compact */
+    .cta-section { padding: 48px 16px; }
+    .cta-section h2 { font-size: 1.5rem; margin-bottom: 12px; }
+    .cta-section p  { font-size: 0.88rem; margin-bottom: 28px; }
+    .guarantee { font-size: 0.78rem; margin-top: 20px; }
 
-    footer { padding: 24px 14px; font-size: 0.75rem; }
+    /* FOOTER */
+    footer { padding: 20px 14px; font-size: 0.72rem; }
 
-    /* Fix aurora blobs on mobile */
-    .aurora-blob:nth-child(1) { width: 300px; height: 250px; }
-    .aurora-blob:nth-child(2) { width: 250px; height: 200px; }
-    .aurora-blob:nth-child(3) { width: 350px; height: 200px; }
+    /* Aurora — smaller on mobile */
+    .aurora-blob:nth-child(1) { width: 280px; height: 220px; }
+    .aurora-blob:nth-child(2) { width: 220px; height: 180px; }
+    .aurora-blob:nth-child(3) { width: 300px; height: 170px; }
 
-    /* Disable heavy parallax on mobile for performance */
+    /* Disable parallax on mobile */
     .hero h1, .hero p, .badge, .price-block { transform: none !important; will-change: auto; }
   }
 
   /* Very small phones */
   @media (max-width: 360px) {
-    .hero h1 { font-size: 1.65rem; }
-    .cta-btn { font-size: 0.88rem; padding: 14px 20px; }
+    .hero h1 { font-size: 1.45rem; }
+    .course-card { min-width: 190px; max-width: 190px; }
+    .testimonial-card { min-width: 240px; max-width: 240px; }
     .perks-grid { grid-template-columns: 1fr; }
   }
 
   /* Touch devices — disable tilt */
   @media (hover: none) {
-    .course-card { transform: none !important; }
+    .course-card:not(:hover) { transform: none !important; }
   }
 
 
@@ -967,6 +1041,7 @@
   <div class="section-label">محتوى الباقة</div>
   <h2 class="section-title">8+ كورسات احترافية في مجال واحد <span style="color:#5B9BD5">أو أكثر</span></h2>
 
+  <div class="scroll-hint">اسحب لليسار لرؤية المزيد</div>
   <div class="courses-grid">
 
     <div class="course-card reveal from-left">
@@ -1062,6 +1137,7 @@
   <div class="section-label">آراء العملاء</div>
   <h2 class="section-title">ناس جربوا وشاركوا تجربتهم</h2>
 
+  <div class="scroll-hint">اسحب لليسار لرؤية المزيد</div>
   <div class="testimonials-grid">
 
     <div class="testimonial-card reveal from-left">
